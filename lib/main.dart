@@ -25,10 +25,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Weather"),
+        centerTitle: true,
+      ),
       body: Container(
         child: Center(
-          child: Text("Weather App"),
+          child: Text("Almaty -5C"),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }
