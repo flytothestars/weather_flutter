@@ -12,7 +12,7 @@ class CityEmpty extends CitySearchState {}
 class CitySearchLoading extends CitySearchState {}
 
 class CitySearchLoaded extends CitySearchState {
-  final List<WeatherEntity> weather;
+  final WeatherEntity weather;
   const CitySearchLoaded({required this.weather});
   @override
   List<Object?> get props => [weather];

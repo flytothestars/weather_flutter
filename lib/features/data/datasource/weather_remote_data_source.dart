@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 abstract class WeatherRemoteDataSource {
   // Future<List<WeatherModel>> updateWeather();
   // Future<List<WeatherModel>> getWeatherByCoordinate();
-  Future<List<WeatherModel>> searchWeatherByCity(String query);
+  Future<WeatherModel> searchWeatherByCity(String query);
 }
 
 /**
@@ -21,7 +21,7 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   WeatherRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<List<WeatherModel>> searchWeatherByCity(String query) async {
+  Future<WeatherModel> searchWeatherByCity(String query) async {
     final response = await client.get(
         Uri.parse(
             'http://api.openweathermap.org/data/2.5/forecast?q=$query&appid=$API_KEY&units=metric'),
@@ -30,8 +30,8 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
     if (response.statusCode == 200) {
       final weather = json.decode(response.body);
       //print(weather);
-      print((weather as List).map((e) => WeatherModel.fromJson(e)).toList());
-      return (weather as List).map((e) => WeatherModel.fromJson(e)).toList();
+      // print((weather as List).map((e) => WeatherModel.fromJson(e)).toList());
+      return WeatherModel.fromJson(weather);
     } else {
       throw ServerException();
     }

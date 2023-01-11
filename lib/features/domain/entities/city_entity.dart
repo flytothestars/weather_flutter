@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class CityEntity extends Equatable {
   final int? id;
   final String? name;
-  final Coordinate coordinate;
+  final CoordinateEntity coordinate;
   final String? country;
   final int? population;
   final int? timezone;
@@ -26,9 +26,12 @@ class CityEntity extends Equatable {
       [id, name, coordinate, country, population, timezone, sunrise, sunset];
 }
 
-class Coordinate {
+class CoordinateEntity extends Equatable {
   final double? lat;
   final double? lon;
 
-  const Coordinate({this.lat, this.lon});
+  const CoordinateEntity({this.lat, this.lon});
+
+  @override
+  List<Object?> get props => [lat, lon];
 }

@@ -46,7 +46,7 @@ class CityModel extends CityEntity {
   }
 }
 
-class CoordinateModel extends Coordinate {
+class CoordinateModel extends CoordinateEntity {
   CoordinateModel({required lat, required lon}) : super(lat: lat, lon: lon);
 
   factory CoordinateModel.fromJson(Map<String, dynamic> json) {

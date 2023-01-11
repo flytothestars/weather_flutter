@@ -7,16 +7,16 @@ class WeatherModel extends WeatherEntity {
       {required cod,
       required message,
       required cnt,
-      required list,
+      // required list,
       required city})
-      : super(cod: cod, message: message, cnt: cnt, list: list, city: city);
+      : super(cod: cod, message: message, cnt: cnt, city: city);
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     return WeatherModel(
         cod: json['cod'],
         message: json['message'],
         cnt: json['cnt'],
-        list: WeatherListModel.fromJson(json['list']),
+        // list: WeatherListModel.fromJson(json['list']),
         city: CityModel.fromJson(json['city']));
   }
 
@@ -25,7 +25,7 @@ class WeatherModel extends WeatherEntity {
       'cod': cod,
       'message': message,
       'cnt': cnt,
-      'list': list,
+      // 'list': list,
       'city': city,
     };
   }

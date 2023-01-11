@@ -5,13 +5,13 @@ import 'package:weather/core/usecases/usecase.dart';
 import 'package:weather/features/domain/entities/weather_entity.dart';
 import 'package:weather/features/domain/repositories/weather_repositories.dart';
 
-class SearchWeatherByCity extends UseCase<List<WeatherEntity>, ParamsCity> {
+class SearchWeatherByCity extends UseCase<WeatherEntity, ParamsCity> {
   final WeatherRepository weatherRepository;
 
   SearchWeatherByCity(this.weatherRepository);
 
   @override
-  Future<Either<Failure, List<WeatherEntity>>> call(ParamsCity params) async {
+  Future<Either<Failure, WeatherEntity>> call(ParamsCity params) async {
     return await weatherRepository.searchWeatherByCity(params.city);
   }
 }

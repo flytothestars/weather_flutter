@@ -5,13 +5,13 @@ import 'package:weather/core/usecases/usecase.dart';
 import 'package:weather/features/domain/entities/weather_entity.dart';
 import 'package:weather/features/domain/repositories/weather_repositories.dart';
 
-class GetWeatherByCoordinate extends UseCase<List<WeatherEntity>, ParamsCoord> {
+class GetWeatherByCoordinate extends UseCase<WeatherEntity, ParamsCoord> {
   final WeatherRepository weatherRepository;
 
   GetWeatherByCoordinate(this.weatherRepository);
 
   @override
-  Future<Either<Failure, List<WeatherEntity>>> call(ParamsCoord params) async {
+  Future<Either<Failure, WeatherEntity>> call(ParamsCoord params) async {
     return await weatherRepository.getWeatherByCoordinate();
   }
 }

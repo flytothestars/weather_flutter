@@ -51,10 +51,11 @@ class CustomSearchDelegate extends SearchDelegate {
           );
         } else if (state is CitySearchLoaded) {
           final weather = state.weather;
-          if (weather.isEmpty) {
-            return _showErrorText('No Characters with that name found');
-          }
-          return Container(child: Text('$weather'));
+          // if (weather.isEmpty) {
+          //   return _showErrorText('No Characters with that name found');
+          // }
+          print(weather.city.name);
+          return Container(child: Text('$weather.city.name'));
         } else if (state is CitySearchError) {
           return _showErrorText(state.message);
         } else {

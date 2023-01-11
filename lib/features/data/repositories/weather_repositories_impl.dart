@@ -14,12 +14,12 @@ class WeatherRepositoryImpl implements WeatherRepository {
       {required this.remoteDataSource, required this.networkInfo});
 
   @override
-  Future<Either<Failure, List<WeatherEntity>>> getWeatherByCoordinate() {
+  Future<Either<Failure, WeatherEntity>> getWeatherByCoordinate() {
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, List<WeatherEntity>>> searchWeatherByCity(
+  Future<Either<Failure, WeatherEntity>> searchWeatherByCity(
       String query) async {
     if (await networkInfo.isConnected) {
       try {
@@ -39,7 +39,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
   }
 
   @override
-  Future<Either<Failure, List<WeatherEntity>>> updateWeather() {
+  Future<Either<Failure, WeatherEntity>> updateWeather() {
     throw UnimplementedError();
   }
 }
