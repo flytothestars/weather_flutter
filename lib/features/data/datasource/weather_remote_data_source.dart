@@ -24,11 +24,13 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   Future<List<WeatherModel>> searchWeatherByCity(String query) async {
     final response = await client.get(
         Uri.parse(
-            'api.openweathermap.org/data/2.5/forecast?q=$query&appid=$API_KEY'),
+            'http://api.openweathermap.org/data/2.5/forecast?q=$query&appid=$API_KEY&units=metric'),
         headers: {'Content-Type': 'application/json'});
 
     if (response.statusCode == 200) {
       final weather = json.decode(response.body);
+      //print(weather);
+      print((weather as List).map((e) => WeatherModel.fromJson(e)).toList());
       return (weather as List).map((e) => WeatherModel.fromJson(e)).toList();
     } else {
       throw ServerException();
