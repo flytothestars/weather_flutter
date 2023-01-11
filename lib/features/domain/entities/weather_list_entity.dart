@@ -3,14 +3,14 @@ import 'package:equatable/equatable.dart';
 class WeatherListEntity extends Equatable {
   final int? dateTime;
   final String? dateTimeText;
-  final Main main;
-  final Weather weather;
-  final Clouds clouds;
-  final Wind wind;
+  final MainEntity main;
+  final WeatherEntity weather;
+  final CloudsEntity clouds;
+  final WindEntity wind;
   final int? visibility;
   final double? pop;
-  final Snow snow;
-  final Sys sys;
+  final SnowEntity snow;
+  final SysEntity sys;
 
   const WeatherListEntity({
     required this.dateTime,
@@ -40,13 +40,13 @@ class WeatherListEntity extends Equatable {
       ];
 }
 
-class Main {
+class MainEntity {
   final String? temp;
   final String? feels_like;
   final String? temp_min;
   final String? temp_max;
 
-  Main({
+  MainEntity({
     required this.temp,
     required this.feels_like,
     required this.temp_min,
@@ -54,13 +54,13 @@ class Main {
   });
 }
 
-class Weather {
+class WeatherEntity {
   final int? id;
   final String? main;
   final String? description;
   final String? icon;
 
-  Weather({
+  WeatherEntity({
     required this.id,
     required this.main,
     required this.description,
@@ -68,25 +68,25 @@ class Weather {
   });
 }
 
-class Clouds {
+class CloudsEntity {
   final String? all;
-  Clouds({required this.all});
+  CloudsEntity({required this.all});
 }
 
-class Wind {
+class WindEntity {
   final double? speed;
   final String? deg;
   final double? gust;
 
-  Wind({required this.speed, required this.deg, required this.gust});
+  WindEntity({required this.speed, required this.deg, required this.gust});
 }
 
-class Snow {
+class SnowEntity {
   final String? h3;
-  Snow({required this.h3});
+  SnowEntity({required this.h3});
 }
 
-class Sys {
+class SysEntity {
   final String? n;
-  Sys({required this.n});
+  SysEntity({required this.n});
 }
