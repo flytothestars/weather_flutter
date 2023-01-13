@@ -4,6 +4,7 @@ import 'package:weather/features/domain/entities/weather_entity.dart';
 import 'package:weather/features/presentation/managment/search_bloc.dart';
 import 'package:weather/features/presentation/managment/search_event.dart';
 import 'package:weather/features/presentation/managment/search_state.dart';
+import 'package:weather/features/presentation/widget/weather_widget.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   CustomSearchDelegate() : super(searchFieldLabel: 'Search for characters...');
@@ -51,11 +52,8 @@ class CustomSearchDelegate extends SearchDelegate {
           );
         } else if (state is CitySearchLoaded) {
           final weather = state.weather;
-          // if (weather.isEmpty) {
-          //   return _showErrorText('No Characters with that name found');
-          // }
-          print(weather.city.name);
-          return Container(child: Text('$weather.city.name'));
+
+          return WeatherWidget(weatherEntity: weather);
         } else if (state is CitySearchError) {
           return _showErrorText(state.message);
         } else {
